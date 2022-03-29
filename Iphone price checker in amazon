@@ -1,0 +1,18 @@
+Cypress.on('uncaught:exception', (err, runnable) => {
+    // returning false here prevents Cypress from
+    // failing the test
+    return false
+  })
+
+describe('My First Test', () => {
+    it('check the title', () => {
+        
+        cy.visit('https://www.amazon.com/?&tag=googleglobalp-20&ref=pd_sl_7nnedyywlk_e&adgrpid=82342659060&hvpone=&hvptwo=&hvadid=585475370855&hvpos=&hvnetw=g&hvrand=16155150459716712072&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9069735&hvtargid=kwd-10573980&hydadcr=2246_13468515&gclid=Cj0KCQjw3IqSBhCoARIsAMBkTb3ogwjO7k6Yqt-3204HBCvSX2PC8Qeznt8zaBeQXZ1NKJbMB6bh0acaAkN1EALw_wcB')
+        cy.get('#twotabsearchtextbox').type('iphone')
+        cy.get("[type='submit']").click()
+        cy.wait(2000)
+        cy.get(".a-price-whole").contains('829')
+
+
+    })
+  })
